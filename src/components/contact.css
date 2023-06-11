@@ -1,0 +1,40 @@
+form {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+form > div {
+    width: 100%;
+    margin: 1em 0;
+}
+
+input {
+    display: block;
+    width: 94%;
+    padding: 0 2%;
+    height: 2.5em;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: .2em;
+    font-weight: 500;
+}
+
+textarea {
+    display: block;
+    width: 94%;
+    height: 8em;
+    padding: 2%;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: .2em;
+    font-weight: 500;
+}
+
+button {
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+    padding: 1em 2em;
+    cursor: pointer;
+    border-radius: 2em;
+}

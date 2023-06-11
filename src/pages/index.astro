@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Contact } from '../components/Contact';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<section class="me">
+			<img src='/background.gif' class="background-me" alt="Image de fond site web"/>
+			<div class="me-1">
+				<header>
+					<nav>
+						<ul>
+							<li>
+								<a href="#projects">Mes réalisations</a>
+							</li>
+							<li>
+								<a href="#contact">Me contacter</a>
+							</li>
+						</ul>
+					</nav>
+				</header>
+				<div>
+					<div>
+						<img src="dev.png" class="img-dev" alt="Image de profil de Kerny LAGUERRE"/>
+						<h1>
+							Kerny LAGUERRE
+							<small>Developer FullStack</small>
+						</h1>
+						<p>
+							Développeur d'applications web responsive contribuant au développement digital de votre entreprise.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="projects">
+			<div class="row">
+				<div class="languages">
+					<h2>
+						Solutions et technologies utilisées
+					</h2>
+					<div class="row-languages">
+						<a href="" class="col">
+							<img src="/technologies/typescript.png" alt="logo Typescript" />
+						</a>
+						<a href="" class="col">
+							<img src="/technologies/php.png" alt="logo php">
+						</a>
+						<a href="" class="col">
+							<img src="https://www.linaro.org/generated/assets/images/content/windows_on_arm/mysql-400-94821c.png" alt="logo mysql">
+						</a>
+						<a href="" class="col">
+							<img src="https://algotrading101.com/learn/wp-content/uploads/2022/09/vultr.webp" alt="logo vultr">
+						</a>
+						<a href="" class="col">
+							<img src="https://neo7.fr/wp-content/uploads/2018/01/symfony-logo.png" alt="logo symfony">
+						</a>
+						<a href="" class="col">
+							<img src="/technologies/structure.png" alt="logo reactJs">
+						</a>
+						<a href="" class="col">
+							<img src="https://pbs.twimg.com/profile_images/1237085354768961537/kt4ZC8Kj_400x400.jpg" alt="logo firstheberg">
+						</a>
+						<a href="" class="col">
+							<img src="/technologies/cloudflare.png " alt="logo cloudflare">
+						</a>
+						<a href="" class="col">
+							<img src="https://www.edureka.co/blog/wp-content/uploads/2019/05/logo.png" alt="logo nodejs">
+						</a>
+						<a href="" class="col">
+							<img src="https://repvue.imgix.net/a9yxc48y3ay5dm2udzwizc2bdyph" alt="logo MongoDB">
+						</a>
+					</div>
+				</div>
+				<div class="projects-list">
+					<h2>
+						Mes réalisations
+					</h2>
+					<div class="row-projects">
+						<a href="" class="col">
+							<img src="https://static.wikia.nocookie.net/6d37f599-6b4a-4053-b2f3-be1bb11109ce" /> Rody Donation
+						</a>
+						<a href="" class="col">
+							<img src="https://static.wikia.nocookie.net/6d37f599-6b4a-4053-b2f3-be1bb11109ce" /> Rody Donation
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contact">
+			<div>
+				<h2>Me contacter</h2>
+				<!-- Composant React formulaire de contact -->
+				<Contact client:visible />
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
