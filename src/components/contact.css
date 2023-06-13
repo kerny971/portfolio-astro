@@ -1,40 +1,29 @@
-form {
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-}
-
-form > div {
-    width: 100%;
-    margin: 1em 0;
-}
-
-input {
-    display: block;
-    width: 94%;
-    padding: 0 2%;
-    height: 2.5em;
-    border: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    border-radius: .2em;
-    font-weight: 500;
-}
-
-textarea {
-    display: block;
-    width: 94%;
-    height: 8em;
-    padding: 2%;
-    border: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    border-radius: .2em;
-    font-weight: 500;
-}
-
-button {
+.form-contact > div {
+    display: flex;
+    align-items: stretch;
+    margin: 2em 0;
     background: #FFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.form-contact > div > input {
+    flex: 0 0 70%;
+    padding: 0 2%;
+    border: none;
+    font-weight: 500;
+}
+
+.form-contact > div > button {
+    flex: 0 0 30%;
+    color: #FFF;
+    border: none;
     font-weight: 400;
-    padding: 1em 2em;
+    padding: 1em;
+    background: #000;
     cursor: pointer;
-    border-radius: 2em;
+    transition: .3s;
+}
+.form-contact > div > button:hover {
+    opacity: .8;
 }
