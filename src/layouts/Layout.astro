@@ -194,16 +194,25 @@ const { title } = Astro.props;
 	.projects > .row > .projects-list > .row-projects {
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-gap: 8em;
+		grid-gap: 4em;
 	}
 	.projects > .row > .projects-list > .row-projects > .col {
 		font-size: .9em;
 		font-weight: 500;
 		overflow: hidden;
-		padding: 0 1em;
+		padding: 1.5em 1em;
 		display: flex;
 		align-items: start;
+		border-radius: .5em;
+		border: 1px solid transparent;
 		gap: 1.5em;
+	}
+	.projects > .row > .projects-list > .row-projects > .col:hover > img {
+		transition: 1s;
+		transform: translate(-.25em, 1em);
+	}
+	.projects > .row > .projects-list > .row-projects > .col:nth-child(2n):hover > img {
+		transform: translate(.25em, 1em);
 	}
 	.projects > .row > .projects-list > .row-projects > .col:nth-child(2n) {
 		justify-content: right;
