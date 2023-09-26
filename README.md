@@ -2,4 +2,4 @@
 
 Mon Portfolio développée avec AstroJS
 
-![Mon portfolio](kerny-laguere-portfolio.png)
+![Mon portfolio](kerny-laguerre-portfolio.png)

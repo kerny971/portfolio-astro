@@ -49,6 +49,7 @@ textarea:focus, input:focus{
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .form-code > div > input,
@@ -167,3 +168,15 @@ textarea:focus, input:focus{
     }
   }
   
+
+.error-form {
+  display: flex;
+  align-items: center !important;
+  gap: .5em;
+  color: red;
+  text-align: left;
+  padding: .5em 1em;
+  font-size: .7em;
+  text-transform: lowercase;
+  background-color: transparent !important;
+}

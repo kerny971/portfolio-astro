@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ky from "ky"
+import 'material-icons/iconfont/material-icons.css';
 import './contact.css'
 
 function scrollToBottom () {
@@ -23,24 +25,33 @@ function useCodeKeyPress () {
     return [code, codeWriting]
 }
 
-function useFormSubmit ({valid, loading}) {
-    const [form, setSubmitForm] = useState({valid, loading})
+function useFormSubmit ({valid, loading, error, response}) {
+    const [form, setSubmitForm] = useState({valid, loading, error, response})
 
-    const formSubmit = (e) => {
+    const formSubmit = async (e) => {
         e.preventDefault()
         setSubmitForm((form) => {
             return {...form, loading: true}
         })
 
-        // REPLACE BY API CALL
-        setTimeout(() => {
+        const baseURL = import.meta.env.PUBLIC_API_URL
+        const endpointUrl = import.meta.env.PUBLIC_API_ENDPOINT_MESSAGE_EMAIL
+        const endpoint = new URL(endpointUrl, baseURL)
+        try {
+            const response = await ky.post(endpoint, { method: 'POST' }).json()
+            console.log(response)
             setSubmitForm(form => {
-                return {...form, valid: true, loading: false}
+                return {...form, valid: true, loading: false, response: response}
             })
-            scrollToBottom()
-        }, 5000)
-
+        } catch (error) {
+            const res = await error.response.json()
+            console.log(res)
+            setSubmitForm(form => {
+                return {...form, valid: false, loading: false, error: res}
+            })
+        }
     }
+
     return [form, formSubmit]
 }
 
@@ -91,13 +102,35 @@ function Loading () {
 }
 
 function FormEmail (props) {
+    const {email, form} = props
+    const emailRegex = import.meta.env.PUBLIC_EMAIL_SYNTAX
+    const emailPattern = new RegExp(emailRegex)
+    const syntaxEmailIsBad = !(emailPattern.test(email))
+
+    useEffect(() => {
+        form.error = null
+    }, [email])
+
+    console.log(form)
     return (
-        <form method="post" className="form-contact" onSubmit={props.formSubmit}>
-            <div>
-                <input type="email" name="email" id="email" placeholder="Votre adresse électronique" defaultValue={props.email} onKeyUp={props.emailWriting}/>
-                <button type="submit">Envoyer mon message</button>
-            </div>
-        </form>
+        <>
+            <form method="post" className="form-contact" onSubmit={props.formSubmit}>
+                <div>
+                    <input type="email" autoComplete="off" name="email" id="email" placeholder="Votre adresse électronique" defaultValue={props.email} onKeyUp={props.emailWriting} />
+                    <button type="submit" disabled={syntaxEmailIsBad}>Envoyer</button>
+                </div>
+                { (email && (syntaxEmailIsBad == true)) || (form.error != null) ? 
+                    <div className="error-form error-s">
+                        <span class="material-icons">announcement</span> 
+                        <div>
+                        { form.error?.message || "Email non valide" }
+                        </div>
+                    </div> 
+                : 
+                    null 
+                }
+            </form>
+        </>
     )
 }
 
@@ -135,15 +168,16 @@ function FormsContact () {
 
     const [email, emailWriting] = useEmailKeyPress()
     const [code, codeWriting] = useCodeKeyPress()
-    const [form, formSubmit] = useFormSubmit({valid: false, loading: false})
-    const [formCode, formCodeSubmit] = useFormCodeSubmit({valid: false, loading: false})
-    const [formMessage, formMessageSubmit] = useFormMessageSubmit({valid: false, loading: false})
+    const [form, formSubmit] = useFormSubmit({valid: false, loading: false, response: null, error: null})
+    const [formCode, formCodeSubmit] = useFormCodeSubmit({valid: false, loading: false, error: null})
+    const [formMessage, formMessageSubmit] = useFormMessageSubmit({valid: false, loading: false, error: null})
+
 
     return (
         <>
             { formMessage.valid ? 
                 <p style={{margin: '1em'}}>
-                    Votre message à bien été envoyée ! Vous serez recontacté par courriel à l'adresse <br/> {email}
+                    Votre message à bien été envoyée ! Vous serez recontacté par courriel à l'adresse <br/> {email ?? __}
                 </p>
             : formCode.valid ? 
                 formMessage.loading ? <Loading /> :
@@ -157,7 +191,7 @@ function FormsContact () {
                         <FormCode 
                             formCodeSubmit={formCodeSubmit}
                             email={email}
-                            code={code} 
+                            code={code}
                             codeWriting={codeWriting} 
                         />
                 :
@@ -165,6 +199,7 @@ function FormsContact () {
                     <Loading />
                 : 
                     <FormEmail 
+                        form={form}
                         email={email} 
                         emailWriting={emailWriting} 
                         formSubmit={formSubmit} 

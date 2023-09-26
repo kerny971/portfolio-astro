@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Contact } from '../components/Contact';
+import { Projects } from '../components/projects/project'
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Portfolio Kerny LAGUERRE">
 	<main>
 		<section class="me">
-			<img src='/background.gif' class="background-me" alt="Image de fond site web"/>
+			<img src='/background.small.gif' class="background-me" alt="Image de fond site web"/>
 			<div class="me-1">
 				<header>
 					<nav>
@@ -22,10 +23,10 @@ import { Contact } from '../components/Contact';
 				</header>
 				<div>
 					<div>
-						<img src="dev.png" class="img-dev" alt="Image de profil de Kerny LAGUERRE"/>
+						<img src="dev.small.png" class="img-dev" alt="Image de profil de Kerny LAGUERRE"/>
 						<h1>
 							Kerny LAGUERRE
-							<small>FullStack Developer</small>
+							<small>Développeur Full Stack</small>
 						</h1>
 						<p>
 							Développeur d'applications web responsive contribuant au développement digital de votre entreprise.
@@ -42,34 +43,7 @@ import { Contact } from '../components/Contact';
 					</h2>
 					<span class="hr"></span>
 					<div class="row-projects">
-						<a href="" class="col">
-							<img src="/website-page-web-svgrepo-com.png" />
-							<div>
-							   <h3>Rody Donation</h3>
-							   <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ad recusandae architecto aut tempore fugit totam. Pariatur dolor, culpa eaque incidunt quis, doloremque nisi, quidem sint voluptates cupiditate illo quae!</span>
-							</div>
-						</a>
-						<a href="" class="col">
-							<img src="/website-page-web-svgrepo-com.png" />
-							<div>
-							   <h3>Rody Network</h3>
-							   <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ad recusandae architecto aut tempore fugit totam. Pariatur dolor, culpa eaque incidunt quis, doloremque nisi, quidem sint voluptates cupiditate illo quae!</span>
-							</div>
-						</a>
-						<a href="" class="col">
-							<img src="/website-page-web-svgrepo-com.png" />
-							<div>
-							   <h3>Tour of Heroes</h3>
-							   <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ad recusandae architecto aut tempore fugit totam. Pariatur dolor, culpa eaque incidunt quis, doloremque nisi, quidem sint voluptates cupiditate illo quae!</span>
-							</div>
-						</a>
-						<a href="" class="col">
-							<img src="/website-page-web-svgrepo-com.png" />
-							<div>
-							   <h3>Kerny LAGUERRE Portfolio</h3>
-							   <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ad recusandae architecto aut tempore fugit totam. Pariatur dolor, culpa eaque incidunt quis, doloremque nisi, quidem sint voluptates cupiditate illo quae!</span>
-							</div>
-						</a>
+						<Projects client:load/>
 					</div>
 				</div>
 				<div class="languages">
@@ -79,31 +53,31 @@ import { Contact } from '../components/Contact';
 					<span class="hr"></span>
 					<div class="row-languages">
 						<a href="" class="col">
+							<img src="/technologies/angular-svgrepo-com.svg" alt="logo php">
+						</a>
+						<a href="" class="col">
 							<img src="/technologies/typescript-svgrepo-com.png" alt="logo Typescript" />
 						</a>
 						<a href="" class="col">
-							<img src="/technologies/php-svgrepo-com.png" alt="logo php">
+							<img src="/technologies/dbs-mysql-svgrepo-com.svg" alt="logo mysql">
 						</a>
 						<a href="" class="col">
-							<img src="/technologies/mysql-logo-svgrepo-com.png" alt="logo mysql">
+							<img src="/technologies/git-svgrepo-com.svg" alt="logo vultr">
 						</a>
 						<a href="" class="col">
-							<img src="/technologies/vultr-svgrepo-com.png" alt="logo vultr">
+							<img src="/technologies/reactjs-svgrepo-com.png" alt="logo reactJs">
 						</a>
 						<a href="" class="col">
 							<img src="/technologies/symfony-svgrepo-com.png" alt="logo symfony">
 						</a>
 						<a href="" class="col">
-							<img src="/technologies/react-javascript-js-framework-facebook-svgrepo-com.png" alt="logo reactJs">
+							<img src="/technologies/mongodb-logo-svgrepo-com.png" alt="logo MongoDB">
 						</a>
 						<a href="" class="col">
 							<img src="/technologies/cloudflare-svgrepo.png " alt="logo cloudflare">
 						</a>
 						<a href="" class="col">
-							<img src="/technologies/nodejs-logo-svgrepo-com.png" alt="logo nodejs">
-						</a>
-						<a href="" class="col">
-							<img src="/technologies/mongodb-logo-svgrepo-com.png" alt="logo MongoDB">
+							<img src="/technologies/linux-svgrepo-com.svg" alt="logo nodejs">
 						</a>
 					</div>
 				</div>
@@ -113,8 +87,8 @@ import { Contact } from '../components/Contact';
 			<div>
 				<h2 class="title-section">Mes réseaux professionels</h2>
 				<span class="hr"></span>
-				<a href=""><img src="/socials/github-repo-git-octocat-svgrepo-com.png" alt="réseaux social Linkedin" /></a>
-				<a href=""><img src="/socials/linkedin-svgrepo-com.png" alt="réseaux social Github" /></a>
+				<a href=""><img src="/socials/github-svgrepo-com-1.svg" alt="réseaux social Linkedin" /></a>
+				<a href=""><img src="/socials/linkedin-svgrepo-com.svg" alt="réseaux social Github" /></a>
 				<!-- Composant React formulaire de contact -->
 				<p>
 					Vous souhaitez développer une application web pour votre entreprise ou pour vous même. Saissisez votre adresse électronique pour rentrez en contact avec moi !
@@ -127,9 +101,8 @@ import { Contact } from '../components/Contact';
 
 <style>
 	main {
-		margin: auto;
+		margin: 0 auto;
 		padding: 1.5rem;
-		max-width: 60ch;
 	}
 	h1 {
 		font-size: 3rem;

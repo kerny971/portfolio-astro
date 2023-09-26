@@ -14,6 +14,9 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap" rel="stylesheet"> 
 		<title>{title}</title>
 	</head>
 	<body>
@@ -21,9 +24,6 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-
-	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&display=swap');
-
 	:root {
 		--green: #21E484;
 	}
@@ -56,17 +56,16 @@ const { title } = Astro.props;
 	html {
 		font-family: Inter, sans-serif;
 		background-color: #F6F6F6;
-		height: 100%;
+		min-height: 100vh;
 	}
 	body {
-		height: 100%;
+		min-height: 100vh;
 		padding: 0;
 		margin: 0;
 	}
 	main {
-		height: 100%;
+		min-height: 100vh;
 		padding: 0 !important;
-		max-width: initial !important;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
@@ -74,8 +73,7 @@ const { title } = Astro.props;
 	}
 
 	.me {
-		max-height: auto;
-		height: 70%;
+		height: 70vh;
 		position: relative;
 		color: #FFF;
 	}
@@ -87,7 +85,7 @@ const { title } = Astro.props;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		z-index: -1;
+		z-index: 0;
 	}
 
 	.me-1 {
@@ -146,7 +144,7 @@ const { title } = Astro.props;
 		font-weight: 400;
 	}
 	.me-1 > div > div > p {
-		font-weight: 300;
+		font-weight: 100;
 		padding: 1em;
 		grid-column: 1 / 4;
 		text-align: center;
@@ -161,10 +159,14 @@ const { title } = Astro.props;
 		justify-self: right;
 	}
 
+
+
+
 	.projects {
 		padding: 1em;
 		margin: 0 auto;
 		max-width: 600px;
+		background-color: #F9F9F9;
 	}
 	.projects > .row {
 		display: flex;
@@ -178,17 +180,20 @@ const { title } = Astro.props;
 	.projects > .row > .languages > .row-languages {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		padding: 1em;
+		grid-gap: 2em;
 		grid-template-rows: auto;
 		justify-items:center;
+		margin-top: 3em;
 	}
 	.projects > .row > .languages > .row-languages > .col {
-		height: 6em;
+		height: auto;
 		overflow: hidden;
-		padding: .75em;
+		pointer-events: none;
+		text-align: center;
 	}
 	.projects > .row > .languages > .row-languages > .col > img {
-		width: 100%;
-		height: 100%;
+		width: 90%;
 	}
 
 	.projects > .row > .projects-list > .row-projects {
@@ -196,41 +201,8 @@ const { title } = Astro.props;
 		grid-template-columns: 1fr;
 		grid-gap: 4em;
 	}
-	.projects > .row > .projects-list > .row-projects > .col {
-		font-size: .9em;
-		font-weight: 500;
-		overflow: hidden;
-		padding: 1.5em 1em;
-		display: flex;
-		align-items: start;
-		border-radius: .5em;
-		border: 1px solid transparent;
-		gap: 1.5em;
-	}
-	.projects > .row > .projects-list > .row-projects > .col:hover > img {
-		transition: 1s;
-		transform: translate(-.25em, 1em);
-	}
-	.projects > .row > .projects-list > .row-projects > .col:nth-child(2n):hover > img {
-		transform: translate(.25em, 1em);
-	}
-	.projects > .row > .projects-list > .row-projects > .col:nth-child(2n) {
-		justify-content: right;
-		flex-direction: row-reverse;
-	}
-	.projects > .row > .projects-list > .row-projects > .col > img {
-		transform: translateY(2em);
-		width: 5em;
-		height: auto;
-		object-fit: contain;
-	}
-	.projects > .row > .projects-list > .row-projects > .col > div > h3 {
-		text-transform: uppercase;
-	}
-	.projects > .row > .projects-list > .row-projects > .col > div > span {
-		font-weight: 400;
-		font-size: .9em;
-	}
+
+
 
 
 
@@ -260,7 +232,7 @@ const { title } = Astro.props;
 	}
 
 	.hr {
-		width: 6em;
+		width: 8em;
 		height: .3em;
 		display: block;
 		background-color: #000;
@@ -277,6 +249,7 @@ const { title } = Astro.props;
 		width: 4em;
 		height: .6em;
 		background-color: var(--green);
+		
 	}
 	.contact > div > .hr::after {
 		margin: 0 auto;
@@ -285,7 +258,7 @@ const { title } = Astro.props;
 	@media screen and (min-width: 500px) {
 
 		.me {
-			height: 60%;
+			height: 60vh;
 		}
 
 		.me-1 > div > div {
@@ -304,8 +277,18 @@ const { title } = Astro.props;
 			padding: .5em;
 		}
 
-		.projects > .row > .projects-list > .row-projects > .col {
-			gap: 3em;
+		.projects > .row > .languages > .row-languages > .col > img {
+			width: 50%;
+		}
+
+
+		.links-of-project > a {
+			padding: 1em 1.5em;
+			display: inline-flex;
+			margin-right: .5em;
+		}
+		.links-of-project > a img {
+			width: 1.5em;
 		}
 	}
 
@@ -330,16 +313,21 @@ const { title } = Astro.props;
 		.projects > .row > .languages > .row-languages {
 			grid-template-columns: repeat(2, 1fr);
 		}
-
+		.projects > .row > .languages > .row-languages > .col {
+			text-align: center;
+			pointer-events: all;
+		}
+		.projects > .row > .languages > .row-languages > .col > img {
+			width: 65%;
+		}
 
 		.projects > .row > .projects-list > .row-projects {
 			padding: 2em;
 		}
 
-		.projects > .row > .projects-list > .row-projects > .col {
+		.links-of-project > a {
+			font-size: .75em;
+			padding: 1em 2em;
 		}
-
 	}
-
-
 </style>
