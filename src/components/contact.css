@@ -13,6 +13,7 @@ textarea:focus, input:focus{
 .form-contact > div {
     display: flex;
     align-items: stretch;
+    justify-content: flex-start;
     background: #FFF;
     border-radius: .4em;
     overflow: hidden;
@@ -46,15 +47,9 @@ textarea:focus, input:focus{
 }
 
 .form-code {
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-.form-code > div > input,
-.form-code > div > button {
-    flex: 0 0 40%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-message > div {
@@ -106,6 +101,31 @@ textarea:focus, input:focus{
 
 .form-message > div > button {
     border-radius: .4em;
+}
+
+.error-form {
+  width: 100%;
+  align-items: center !important;
+  gap: .5em;
+  color: red;
+  text-align: left;
+  padding: .5em 1.5em !important;
+  font-size: .7em;
+  text-transform: lowercase;
+  background-color: transparent !important;
+  flex-wrap: nowrap !important;
+}
+
+.error-form-message {
+  width: 100%;
+  gap: .5em;
+  color: red;
+  font-size: .7em;
+  text-transform: lowercase;
+  display: flex;
+  padding: 0 2.5em 2em;
+  text-align: left;
+  align-items: center;
 }
 
 .loading {
@@ -168,15 +188,3 @@ textarea:focus, input:focus{
     }
   }
   
-
-.error-form {
-  display: flex;
-  align-items: center !important;
-  gap: .5em;
-  color: red;
-  text-align: left;
-  padding: .5em 1em;
-  font-size: .7em;
-  text-transform: lowercase;
-  background-color: transparent !important;
-}

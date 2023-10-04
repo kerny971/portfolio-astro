@@ -4,25 +4,15 @@
   overflow: hidden;
   padding: 1.5em 1em;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: start;
   border-radius: .5em;
   border: 1px solid transparent;
   gap: 1.5em;
+  text-align: center;
 }
 
-.col-project:hover > img {
-  transition: 1s;
-  transform: translate(-.25em, 1em);
-}
-
-.col-project:nth-child(2n):hover > img {
-  transform: translate(.25em, 1em);
-}
-
-.col-project:nth-child(2n) {
-  justify-content: right;
-  flex-direction: row-reverse;
-}
 
 .col-project > img {
   transform: translateY(2em);
@@ -35,10 +25,10 @@
   text-transform: uppercase;
 }
 
-.col-project > div  span {
+.col-project > div > p {
+  display: block;
   font-weight: 400;
   font-size: .9em;
-  text-align: center;
 }
 .links-of-project {
   margin-top: 2em;
@@ -50,13 +40,17 @@
   box-shadow: 1px 1px 3px #c5d6cc;
   border-bottom: 2px solid #bcc4c0;
   align-items: center;
-  margin-bottom: 1.5em;
+  margin: 0 auto 1.5em;
   text-align: center;
   padding: 1em 1em;
   border-radius: 2em;
+  max-width: 220px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+.links-of-project > a:hover {
+  border-color: #F9F9F9;
 }
 .links-of-project > a > img {
   width: 1.5em;
@@ -64,24 +58,54 @@
 
 
 @media screen and (min-width: 500px) {
-  .projects > .row > .projects-list > .row-projects > .col-project {
+  .col-project {
     gap: 3em;
+    text-align: left;
+    flex-wrap: nowrap;
   }
 
   .links-of-project > a {
     padding: 1em 1.5em;
     display: inline-flex;
-    margin-right: .5em;
+    margin-right: 1em;
+    font-size: 1em;
   }
   .links-of-project > a img {
-    width: 1.5em;
+    display: none;
   }
 }
 
-@media screen and (min-width: 1000) {
+@media screen and (min-width: 1000px) {
+
+  .col-project > img {
+    outline: 12px solid transparent;
+    border-radius: 3em;
+    outline-offset: -8px;
+  }
+
+  
+  .col-project:nth-child(2n) {
+    justify-content: right;
+    flex-direction: row-reverse;
+  }
+
+  .col-project:hover > img {
+    transition: .3s;
+    outline: 3px solid var(--green);
+    outline-offset: 8px;
+  }
+
+  .col-project:nth-child(2n):hover > img{
+    outline: 3px solid #000;
+  }
+
   .links-of-project > a {
     font-size: .75em;
     padding: 1em 2em;
+  }
+
+  .links-of-project > a img {
+    display: initial;
   }
 }
 
@@ -112,7 +136,7 @@
   animation-timing-function: linear;
   background: linear-gradient(to right, #F5F5F5 8%, #F9F9F9 18%, #F5F5F5 33%);
   background-size: 800px 104px;
-  height: 500px;
+  height: 400px;
   overflow: hidden;
   position: relative;
 }
@@ -135,5 +159,32 @@
   float: left;
   margin: 20px 20px 20px 0;
 }
-.pure-background {
+
+@media screen and (min-width: 1000px) {
+  .animated-background {
+    height: 550px;
+  }
+}
+
+
+.projects-error {
+  text-align: center;
+  padding: 2em 1em;
+}
+
+.projects-error .oups-error {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.projects-error .nbr-http-error {
+  font-weight: 700;
+  font-size: 3em;
+  line-height: .7em;
+  overflow: hidden;
+  padding: .5em;
+}
+.projects-error .nbr-http-error small {
+  font-weight: 400;
+  font-size: .3em;
 }

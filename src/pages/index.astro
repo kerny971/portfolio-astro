@@ -1,41 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Contact } from '../components/Contact';
-import { Projects } from '../components/projects/project'
+import { Projects } from '../components/projects/project';
+const assetsUrl = 'https://assets.rody.network/rody.bio/'
 ---
 
-<Layout title="Portfolio Kerny LAGUERRE">
-	<main>
-		<section class="me">
-			<img src='/background.small.gif' class="background-me" alt="Image de fond site web"/>
+<Layout title="Portfolio - Kerny LAGUERRE">
+	<header>
+		<div class="me">
+			<img src={assetsUrl + 'background.small.gif'} class="background-me" alt="fond animé développeur site web"/>
 			<div class="me-1">
-				<header>
+				<div class="menu">
 					<nav>
 						<ul>
-							<!-- <li>
-								<a href="#projects">Mes réalisations</a>
-							</li> -->
 							<li>
 								<a href="#contact">Me contacter</a>
-							</li>
+							</li> 
 						</ul>
 					</nav>
-				</header>
+				</div>
 				<div>
 					<div>
-						<img src="dev.small.png" class="img-dev" alt="Image de profil de Kerny LAGUERRE"/>
+						<img src={assetsUrl + 'dev.small.png'} class="img-dev" alt="profil de Kerny LAGUERRE"/>
 						<h1>
 							Kerny LAGUERRE
-							<small>Développeur Full Stack</small>
+							<small>Développeur Full Stack Junior</small>
 						</h1>
 						<p>
-							Développeur d'applications web responsive contribuant au développement digital de votre entreprise.
+							Développeur d'applications web responsive contribuant au développement numérique de votre entreprise.
 						</p>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section class="projects">
+		</div>
+	</header>
+	<main>
+		<div class="projects">
 			<div class="row">
 				<div class="projects-list">
 					<h2 class="title-section">
@@ -43,7 +43,7 @@ import { Projects } from '../components/projects/project'
 					</h2>
 					<span class="hr"></span>
 					<div class="row-projects">
-						<Projects client:load/>
+						<Projects client:idle />
 					</div>
 				</div>
 				<div class="languages">
@@ -52,51 +52,60 @@ import { Projects } from '../components/projects/project'
 					</h2>
 					<span class="hr"></span>
 					<div class="row-languages">
-						<a href="" class="col">
-							<img src="/technologies/angular-svgrepo-com.svg" alt="logo php">
+						<a href="https://angular.io/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/angular-svgrepo-com.svg'} alt="logo Angular">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/typescript-svgrepo-com.png" alt="logo Typescript" />
+						<a href="https://www.typescriptlang.org/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/typescript-svgrepo-com.png'} alt="logo Typescript" />
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/dbs-mysql-svgrepo-com.svg" alt="logo mysql">
+						<a href="https://www.mysql.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/dbs-mysql-svgrepo-com.svg'} alt="logo Mysql">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/git-svgrepo-com.svg" alt="logo vultr">
+						<a href="https://git-scm.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/git-svgrepo-com.svg'} alt="logo Git">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/reactjs-svgrepo-com.png" alt="logo reactJs">
+						<a href="https://symfony.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/symfony-svgrepo-com.png'} alt="logo Symfony">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/symfony-svgrepo-com.png" alt="logo symfony">
+						<a href="https://www.cloudflare.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/cloudflare-svgrepo.png'} alt="logo Cloudflare">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/mongodb-logo-svgrepo-com.png" alt="logo MongoDB">
+						<a href="https://nodejs.org/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/nodejs-svgrepo-com.svg'} alt="logo NodeJS">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/cloudflare-svgrepo.png " alt="logo cloudflare">
+						<a href="https://react.dev/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/reactjs-svgrepo-com.svg'} alt="logo ReactJS">
 						</a>
-						<a href="" class="col">
-							<img src="/technologies/linux-svgrepo-com.svg" alt="logo nodejs">
+						<a href="https://cloud.google.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/gcp-svgrepo-com.svg'} alt="logo Google Cloud">
+						</a>
+						<a href="https://www.docker.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/docker-logo-svgrepo-com.svg'} alt="logo Docker">
+						</a>
+						<a href="https://www.vultr.com/" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/vultr-svgrepo-com.png'} alt="logo Vultr">
+						</a>
+						<a href="https://www.redhat.com/en/topics/linux/what-is-linux" target="_blank" class="col">
+							<img src={assetsUrl + '/technologies/linux-svgrepo-com.svg'} alt="logo Linux">
 						</a>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section id="contact" class="contact">
-			<div>
-				<h2 class="title-section">Mes réseaux professionels</h2>
-				<span class="hr"></span>
-				<a href=""><img src="/socials/github-svgrepo-com-1.svg" alt="réseaux social Linkedin" /></a>
-				<a href=""><img src="/socials/linkedin-svgrepo-com.svg" alt="réseaux social Github" /></a>
-				<!-- Composant React formulaire de contact -->
-				<p>
-					Vous souhaitez développer une application web pour votre entreprise ou pour vous même. Saissisez votre adresse électronique pour rentrez en contact avec moi !
-				</p>
-				<Contact client:visible />
-			</div>
-		</section>
+		</div>
 	</main>
+	<footer id="contact" class="contact">
+		<div>
+			<h2 class="title-section">Mes réseaux professionels</h2>
+			<span class="hr"></span>
+			<a href=""><img src={assetsUrl + '/socials/github-svgrepo-com-1.svg'} alt="réseaux social Linkedin" /></a>
+			<a href=""><img src={assetsUrl + '/socials/linkedin-svgrepo-com.svg'} alt="réseaux social Github" /></a>
+			<!-- Composant React formulaire de contact -->
+			<p>
+				Vous souhaitez développer une application web pour votre entreprise ou pour vous même. Saissisez votre adresse électronique pour rentrez en contact avec moi !
+			</p>
+			<Contact client:idle />
+		</div>
+	</footer>
 </Layout>
 
 <style>
